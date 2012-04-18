@@ -1,7 +1,22 @@
-!!!
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+extends base
+
+block head
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  script(src='/javascripts/lib/modernizr-2.5.3-respond-1.1.0.min.js')
+
+block body
+
+  #header-container
+    header.wrapper.clearfix
+      h1#title= title
+      nav
+        block nav
+
+  #main-container
+    #main.wrapper.clearfix
+      block content
+
+  #footer-container
+    footer.wrapper
+      block footer
