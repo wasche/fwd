@@ -4,10 +4,13 @@ block content
   article
     header
       h1 Welcome to #{title}
-      p welcome...
+      if host.length
+        p welcome... #{host[0]}
+      else
+        p Couldn't determine your hostname, personalized redirects won't be available.
     section
       h2 article section
-      p Your host is #{host}
+      p lorem ipsum dolar sit amet...
 
   aside
     h3 aside
