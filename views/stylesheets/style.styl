@@ -11,37 +11,9 @@ body
 	width 90%
 	margin 0 5%
 
-/* ===================
-    ALL: Orange Theme
-   =================== */
+@import 'themes/dark'
 
-#header-container{ border-bottom: 20px solid #e44d26; }
-#footer-container{ border-top:    20px solid #e44d26; }
-#main aside      { border-top:    20px solid #e44d26; }
-
-#header-container,
-#footer-container,
-#main aside{
-	background:#f16529;
-}
-
-#title{ color:white; }
-
-::-moz-selection { background: #f16529; color: #fff; text-shadow: none; }
-::selection      { background: #f16529; color: #fff; text-shadow: none; }
-
-
-/* ===============
-    ALL: IE Fixes
-   =============== */
-
-.ie7 #title{ padding-top:20px; }
-
-
-/* ===== Primary Styles ========================================================
-   Author:
-   ========================================================================== */
-
+@import 'ie'
 @import 'media-queries'
 @import 'helpers'
 @import 'print'

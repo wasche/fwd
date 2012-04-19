@@ -1,3 +1,7 @@
+html
+  background-color color_bg
+  color color_text
+
 //
 // Menu
 //
@@ -7,14 +11,14 @@ nav
     display block
     margin-bottom 10px
     padding 15px 0
-    background #e44d26
-    color white
+    background color_nav_bg
+    color color_nav
     text-align center
     text-decoration none
     font-weight bold
     &:hover,
     &:visited
-      color white
+      color color_nav_hover
     &:hover
       text-decoration underline
 
@@ -31,7 +35,37 @@ nav
   aside
     color white
     padding 0px 5% 10px
+    border-top 20px solid color_edge_border
 
-#footer-container footer
-  color white
-  padding 20px 0
+#footer-container
+  border-top 20px solid color_edge_border
+  footer
+    color color_text
+    padding 20px 0
+
+#header-container
+  border-bottom 20px solid color_edge_border
+
+  header
+    position relative
+    z-index 0
+    h1
+      letter-spacing 0.25em
+
+    #logo
+      font-weight bold
+      font-size 1500%
+      position absolute
+      top 60px
+      left -60px
+      z-index -1
+      color color_logo
+      opacity 0.3
+
+#header-container,
+#footer-container,
+#main aside
+	background color_edge
+
+#title
+  color color_title

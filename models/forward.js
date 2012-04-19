@@ -3,5 +3,12 @@ var mongoose = require('mongoose')
   ;
 
 module.exports = new Schema({
-   name : String 
+    name    : String
+  , target  : String
+  , created : { type: Date, default: Date.now }
+  , updated : { type: Date, default: Date.now }
+  , meta    : {
+      uses  : Number
+    , favs  : Number
+  }
 });
