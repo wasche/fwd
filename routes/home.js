@@ -10,7 +10,7 @@ exports.get = function(req, res){
         console.err(err);
       } else {
         res.render('index', {
-          title: 'fwd'
+          title: null
         , host: domains
         });
       }

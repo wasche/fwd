@@ -1,22 +1,33 @@
 extends layout
 
 block nav
-  ul
-    li
-      a(href='/') Add Forward
+  include nav
 
 block content
   article
     header
-      h1 Welcome to #{title}
-      if host.length
-        p welcome... #{host[0]}
-      else
-        p Couldn't determine your hostname, personalized redirects won't be available.
-    section
-      h2 article section
-      p lorem ipsum dolar sit amet...
+      h1 Welcome to fwd
+    p
+      code fwd 
+      | is a URL redirector that uses pretty labels for its shortened urls.
+      | You can see a few of the common and recently used ones on this page.
+      | Alternatively, you can browse them all or add new ones.
+    unless host.length
+      section
+        h2 Sorry
+        p Couldn't determine your hostname, so personalized forwards won't be available.
 
   aside
-    h3 aside
-    p lorem ipsum
+    if host.length
+      h3= host[0]
+      ul
+        li
+          a(href='/') Test
+    h3 Recent
+    ul
+      li
+        a(href='/') Test
+    h3 Popular
+    ul
+      li
+        a(href='/') Test

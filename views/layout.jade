@@ -1,7 +1,13 @@
+- var title = typeof(title) != undefined ? title : null
+
 extends base
 
 block head
-  title= title
+  title
+    | fwd
+    if title
+      | -- 
+      = title
   link(rel='stylesheet', href='/stylesheets/style.css')
   script(src='/javascripts/lib/modernizr-2.5.3-respond-1.1.0.min.js')
 
@@ -12,7 +18,7 @@ block body
       #logo
         span &gt;
         span &gt;
-      h1#title= title
+      h1#title fwd
       nav
         block nav
 
