@@ -1,6 +1,6 @@
 {
   "name": "fwd",
-  "version": "0.0.2",
+  "version": "0.0.2-2",
   "private": true,
   "subdomain": "fwd",
   "scripts": {
@@ -15,6 +15,6 @@
     "express-mongoose": "~0.0.5"
   },
   "engines": {
-    "node": "0.6.x"
+    "node": "~0.6.7"
   }
 }
