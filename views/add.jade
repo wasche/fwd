@@ -1,0 +1,19 @@
+extends layout
+
+block nav
+  include nav
+
+block content
+  article
+    header
+      h1 Add Forward
+    form.inline(method='post', action='/_add')
+      fieldset
+        p
+          | Make http://hostname/
+          input(type='text', name='name', placeholder='pretty-name', size=12)
+          |  redirect to 
+          input(type='text', name='url', placeholder='http://target.url/', size=30)
+          | .
+      fieldset
+        input(type='submit', value='Add')

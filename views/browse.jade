@@ -1,0 +1,13 @@
+extends layout
+
+block nav
+  include nav
+
+block content
+  article
+    header
+      h1 Available Forwards:
+    ul
+      each fwd in forwards
+        li
+          a(href=fwd.target)= fwd.name
