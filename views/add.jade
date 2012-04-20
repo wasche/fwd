@@ -17,3 +17,27 @@ block content
           | .
       fieldset
         input(type='submit', value='Add')
+
+  article
+    header
+      h1 Add Dynamic Forward
+    form.inline(method='post', action='/_add')
+      fieldset
+        p
+          | Make http://hostname/
+          input(type='text', name='name', placeholder='prefix{NUM}', size=12)
+          |  redirect to
+          input(type='text', name='url', placeholder='http://target.url/{NUM}', size=30)
+          | .
+      fieldset
+        input(type='hidden', name='dynamic', value='true')
+        input(type='submit', value='Add')
+
+  aside
+    h3 Dynamic Forwards
+    p.
+      Dynamic forwards use regular expressions to allow dynamic redirects by
+      passing information from the shortened name to the target url.
+    p.
+      If you use <code>{NUM}</code>, it will match any series of numbers in the
+      pretty name, and replace <code>{NUM}</code> with them in the target url.

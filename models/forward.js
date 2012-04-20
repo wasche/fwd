@@ -7,6 +7,7 @@ var mongoose = require('mongoose')
 Forward = module.exports = new Schema({
     name      : { type: String, required: true, unique: true }
   , target    : String
+  , dynamic   : { type: Boolean, default: false }
   , created   : { type: Date, default: Date.now }
   , updated   : { type: Date, default: Date.now }
   , accessed  : { type: Date, default: null }
@@ -21,4 +22,12 @@ Forward.methods.touch = function touch(callback){
 
 Forward.statics.getLatest = function getLatest(callback){
   return this.find().desc('updated').limit(5).run(callback);
+};
+
+Forward.statics.getPopular = function getPopular(callback){
+  return this.find().desc('uses').limit(5).run(callback);
+};
+
+Forward.statics.getRecent = function getRecent(callback){
+  return this.find().desc('accessed').limit(5).run(callback);
 };

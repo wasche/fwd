@@ -24,13 +24,23 @@ block content
         ul
           li
             a(href='/') Test
-    h3 Recent
+    h3 Latest
     ul
       each fwd in latest
         li
-          a(href=fwd.target)= fwd.name
-    //
-      h3 Popular
-      ul
-        li
-          a(href='/') Test
+          unless fwd.dynamic
+            a(href=fwd.target)= fwd.name
+          else
+            = fwd.name
+    h3 Popular
+    ul
+      each fwd in popular
+        unless fwd.dynamic
+          li
+            a(href=fwd.target)= fwd.name
+    h3 Recent
+    ul
+      each fwd in recent
+        unless fwd.dynamic
+          li
+            a(href=fwd.target)= fwd.name

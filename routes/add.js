@@ -14,6 +14,7 @@ exports.post = function(req, res){
   Forward.create({
     name: req.body.name
   , target: req.body.url
+  , dynamic: !!req.body.dynamic
   },
   function(err){
     if (err) {

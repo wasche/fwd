@@ -14,10 +14,17 @@ exports.get = function(req, res){
       }
       Forward.getLatest(function(err, latest){
         if (err) { throw err; }
-        res.render('home', {
-          title: null
-        , host: domains
-        , latest: latest
+        Forward.getRecent(function(err, recent){
+          if (err) { throw err; }
+          Forward.getPopular(function(err, popular){
+            res.render('home', {
+              title: null
+            , host: domains
+            , latest: latest
+            , recent: recent
+            , popular: popular
+            });
+          });
         });
       });
   });
