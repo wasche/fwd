@@ -5,7 +5,10 @@ var mongoose = require('mongoose')
 exports.path = '/_browse';
 
 exports.get = function(req, res){
-  Forward.find({}, function(err, docs){
+  Forward
+  .find({})
+  .asc('name')
+  .run(function(err, docs){
     res.render('browse', {
       title: null
     , forwards: docs

@@ -7,7 +7,14 @@ block content
   article
     header
       h1 Available Forwards:
-    ul
-      each fwd in forwards
-        li
-          a(href=fwd.target)= fwd.name
+    table
+      thead
+        tr
+          th Name
+          th Uses
+      tbody
+        each fwd in forwards
+          tr
+            td
+              a(href=fwd.target)= fwd.name
+            td= fwd.uses
