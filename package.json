@@ -1,20 +1,20 @@
 {
-  "name": "fwd"
-, "version": "0.0.1"
-, "private": true
-, "subdomain": "fwd"
-, "scripts": {
+  "name": "fwd",
+  "version": "0.0.2",
+  "private": true,
+  "subdomain": "fwd",
+  "scripts": {
     "start": "node bin/fwd"
-  }
-, "dependencies": {
-    "express": "~3.0.0"
-  , "jade": "~0.24.0"
-  , "stylus": "~0.25.0"
-  , "nib": "~0.4.1"
-  , "mongoose": "~2.5.14"
-  , "express-mongoose": "~0.0.5"
-  }
-, "engines": {
+  },
+  "dependencies": {
+    "express": "~3.0.0",
+    "jade": "~0.24.0",
+    "stylus": "~0.25.0",
+    "nib": "~0.4.1",
+    "mongoose": "~2.5.14",
+    "express-mongoose": "~0.0.5"
+  },
+  "engines": {
     "node": "0.6.x"
   }
 }
