@@ -20,15 +20,17 @@ block content
   aside
     if host.length
       h3= host[0]
-      ul
-        li
-          a(href='/') Test
+      //
+        ul
+          li
+            a(href='/') Test
     h3 Recent
     ul
       each fwd in latest
         li
           a(href=fwd.target)= fwd.name
-    h3 Popular
-    ul
-      li
-        a(href='/') Test
+    //
+      h3 Popular
+      ul
+        li
+          a(href='/') Test

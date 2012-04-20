@@ -10,15 +10,15 @@ exports.get = function(req, res){
     req.headers['x-forwarded-for'] || req.connection.remoteAddress,
     function(err, domains){
       if (err) {
-        console.err(err);
-      } else {
-        Forward.getLatest(function(err, latest){
-          res.render('index', {
-            title: null
-          , host: domains
-          , latest: latest
-          });
-        });
+        throw err;
       }
+      Forward.getLatest(function(err, latest){
+        if (err) { throw err; }
+        res.render('home', {
+          title: null
+        , host: domains
+        , latest: latest
+        });
+      });
   });
 };
