@@ -11,7 +11,7 @@ block content
       fieldset
         p
           | Make http://hostname/
-          input(type='text', name='name', placeholder='pretty-name', size=12)
+          input(type='text', name='name', placeholder='pretty-name', size=18)
           |  redirect to 
           input(type='text', name='url', placeholder='http://target.url/', size=30)
           | .
@@ -25,7 +25,7 @@ block content
       fieldset
         p
           | Make http://hostname/
-          input(type='text', name='name', placeholder='prefix{NUM}', size=12)
+          input(type='text', name='name', placeholder='prefix{NUM}', size=18)
           |  redirect to
           input(type='text', name='url', placeholder='http://target.url/{NUM}', size=30)
           | .
@@ -41,3 +41,18 @@ block content
     p.
       If you use <code>{NUM}</code>, it will match any series of numbers in the
       pretty name, and replace <code>{NUM}</code> with them in the target url.
+    p.
+      If you use <code>/{QUERY}</code>, it will match any text string in the
+      pretty name, and replace <code>{QUERY}</code> with them in the target url.
+    h3 Example:
+    dl
+      dt
+        code google/{QUERY}
+      dd
+        div redirect to
+        code google.com/?q={QUERY}
+      dt
+        code w{NUM}
+      dd
+        div redirect to
+        code weather.com/weather/today/{NUM}
