@@ -18,12 +18,18 @@ block content
         p Couldn't determine your hostname, so personalized forwards won't be available.
 
   aside
-    if host.length
-      h3= host[0]
-      //
-        ul
+    if user
+      h3
+        .edit
+          a(href='/_user/#{user._id}/edit') (edit)
+        | #{user.name} (#{host})
+      ul
+        each fwd in user.forwards
           li
-            a(href='/') Test
+            if fwd.dynamic
+              = fwd.name
+            else
+              a(href=fwd.target)= fwd.name
     h3 Latest
     ul
       each fwd in latest

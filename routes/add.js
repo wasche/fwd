@@ -44,10 +44,10 @@ exports.post = function(req, res){
     ;
 
   if (req.body.personal) {
-    User.$where('this.hosts.indexOf(' + req.body.hostname + ') >= 0').exec(function(err, docs){
+    User.$where('this.hosts.indexOf("' + req.body.hostname + '") >= 0').exec(function(err, docs){
       if (err) { throw err; }
       if (!(docs && docs.length)) {
-        var user = new User();
+        var user = new User({ name: req.body.hostname });
         user.hosts.push(req.body.hostname);
         user.forwards.push(fwd);
         user.save(save_handler(res));

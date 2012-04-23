@@ -6,7 +6,7 @@ var mongoose = require('mongoose')
 
 module.exports = new Schema({
     id        : ObjectId
-  , name      : String 
+  , name      : { type: String, required: true, unique: true }
   , hosts     : [String]
   , forwards  : [Forward]
 });

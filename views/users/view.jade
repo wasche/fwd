@@ -1,0 +1,17 @@
+extends ../layout
+
+block nav
+  include ../nav
+
+block content
+  article
+    header
+      h1 Edit User
+    form
+      fieldset
+        label(for='name') Name:
+        span= user.name
+      fieldset
+        legend Hosts:
+        each host in user.hosts
+          .host= host
