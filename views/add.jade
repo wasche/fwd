@@ -4,6 +4,9 @@ block nav
   include nav
 
 block content
+  if error
+  #error.err= error
+
   article
     header
       h1 Add Forward
@@ -15,8 +18,21 @@ block content
           |  redirect to 
           input(type='text', name='url', placeholder='http://target.url/', size=30)
           | .
+      if host
+        fieldset
+          input(type='hidden', name='hostname', value=host)
+          input#personal(type='checkbox', name='personal', checked=false)
+          label(for='personal') personal (#{host})
       fieldset
         input(type='submit', value='Add')
+
+  if host
+    aside
+      h3 Personal Forward
+      p.
+        Personal forwards are only enabled for the current user. By checking the
+        <code>personal</code> box, it will only be enabled for you. You can use
+        this to override any of the public forwards.
 
   article
     header
@@ -29,6 +45,11 @@ block content
           |  redirect to
           input(type='text', name='url', placeholder='http://target.url/{NUM}', size=30)
           | .
+      if host
+        fieldset
+          input(type='hidden', name='hostname', value=host)
+          input#personal-dynamic(type='checkbox', name='personal', checked=false)
+          label(for='personal-dynamic') personal (#{host})
       fieldset
         input(type='hidden', name='dynamic', value='true')
         input(type='submit', value='Add')

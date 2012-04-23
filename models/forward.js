@@ -5,13 +5,13 @@ var mongoose = require('mongoose')
   ;
 
 Forward = module.exports = new Schema({
-    name      : { type: String, required: true, unique: true }
-  , target    : String
-  , dynamic   : { type: Boolean, default: false }
-  , created   : { type: Date, default: Date.now }
-  , updated   : { type: Date, default: Date.now }
-  , accessed  : { type: Date, default: null }
-  , uses      : { type: Number, default: 0 }
+    name      : { type: String,   required: true    }
+  , target    : { type: String,   required: true    }
+  , dynamic   : { type: Boolean,  default: false    }
+  , created   : { type: Date,     default: Date.now }
+  , updated   : { type: Date,     default: Date.now }
+  , accessed  : { type: Date,     default: null     }
+  , uses      : { type: Number,   default: 0        }
 });
 
 Forward.methods.touch = function touch(callback){

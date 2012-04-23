@@ -35,12 +35,16 @@ block content
     h3 Popular
     ul
       each fwd in popular
-        unless fwd.dynamic
-          li
+        li
+          unless fwd.dynamic
             a(href=fwd.target)= fwd.name
+          else
+            = fwd.name
     h3 Recent
     ul
       each fwd in recent
-        unless fwd.dynamic
-          li
+        li
+          unless fwd.dynamic
             a(href=fwd.target)= fwd.name
+          else
+            = fwd.name
