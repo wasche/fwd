@@ -6,6 +6,7 @@ exports.get = function(req, res){
     ;
 
   Forward.findById(req.params.id, function(err, fwd){
+    if (err) { throw err; }
     res.render('forwards/edit', {
       title: null
     , fwd: fwd
