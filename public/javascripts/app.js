@@ -1,14 +1,17 @@
+jQuery.fn.log = function(msg){
+  console.log("%s: %o", msg, this);
+  return this;
+};
+
 (function($){
-  $('.edit')
-    .css('display', 'none')
+  $('.editable')
     .each(function(){
-      var elem = $(this);
-      $(this).parent()
-        .mouseenter(function(){
-          elem.css('display', 'block');
-        })
-        .mouseleave(function(){
-          elem.css('display', 'none');
-        });
+      var elems = $(this).find('.edit').css('visibility', 'hidden');
+      $(this).mouseenter(function(){
+        elems.css('visibility', 'visible');
+      })
+      .mouseleave(function(){
+        elems.css('visibility', 'hidden');
+      });
     });
 })(jQuery);

@@ -14,9 +14,10 @@ block content
           th Uses
       tbody
         each fwd in forwards
-          tr
+          tr.editable
             td
               a(href=fwd.target)= fwd.name
             td= fwd.uses
             td
-              a(href='_forward/#{fwd._id}/edit') (edit)
+              .edit
+                a(href='_forward/#{fwd._id}/edit') (edit)
