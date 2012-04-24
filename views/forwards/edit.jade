@@ -7,7 +7,13 @@ block content
   article
     header
       h1 Edit Forward
-    form(method='post', action='/_forward/#{fwd.id}')
+    form.inline(method='post', action='/_forward/#{fwd.id}')
       fieldset
+        p
+          | Make http://hostname/
+          input(type='text', name='name', placeholder='pretty-name', size=18, value=fwd.name)
+          |  redirect to 
+          input(type='text', name='url', placeholder='http://target.url/', size=30, value=fwd.target)
+          | .
       fieldset
         input(type='submit', value='Save')
