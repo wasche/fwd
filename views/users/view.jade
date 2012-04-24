@@ -10,8 +10,15 @@ block content
     form
       fieldset
         label(for='name') Name:
-        span= user.name
-      fieldset
+        if user.name
+          span= user.name
+        else
+          span (not set)
+      fieldset.hosts
         legend Hosts:
         each host in user.hosts
-          .host= host
+          .host
+            = host
+            | (edit)
+            | (delete)
+        span (add)

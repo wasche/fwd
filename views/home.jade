@@ -21,7 +21,7 @@ block content
     if user
       h3
         .edit
-          a(href='/_user/#{user._id}/edit') (edit)
+          a(href='/_user/#{user._id}/') (edit)
         | #{user.name} (#{host})
       ul
         each fwd in user.forwards
