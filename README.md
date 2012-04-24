@@ -28,3 +28,23 @@ and start the app!
 ```
 ./run.sh
 ```
+
+Credits
+---
+
+Built with:
+
+[Express][]
+[Mongoose][]
+[Jade][]
+[Stylus][]
+
+Hosted on:
+
+[nodejitsu][]
+
+[express]: https://github.com/visionmedia/express
+[mongoose]: https://github.com/LearnBoost/mongoose
+[jade]: https://github.com/visionmedia/jade
+[stylus]: https://github.com/LearnBoost/stylus
+[nodejitsu]: http://nodejitsu.com/
