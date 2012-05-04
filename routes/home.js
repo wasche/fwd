@@ -10,7 +10,6 @@ exports.get = function(req, res){
   dns.reverse(
     req.headers['x-forwarded-for'] || req.connection.remoteAddress,
     function(err, domains){
-      if (err) { throw err; }
       Forward.getLatest(function(err, latest){
         if (err) { throw err; }
         Forward.getRecent(function(err, recent){

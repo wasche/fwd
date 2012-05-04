@@ -18,10 +18,6 @@ exports.get = function(req, res){
   dns.reverse(
     req.headers['x-forwarded-for'] || req.connection.remoteAddress,
     function(err, domains){
-      if (err) {
-        throw err;
-      }
-
       res.render('add', {
         title: null
       , error: null
