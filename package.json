@@ -4,7 +4,7 @@
   "private": true,
   "subdomain": "fwd",
   "scripts": {
-    "start": "node_modules/nodemon/bin/nodemon.js bin/fwd",
+    "start": "node_modules/nodemon/bin/nodemon.js -w bin -w lib -w models -w routes bin/fwd",
     "predb": "mkdir -p db log",
     "db": "mongod --config mongod.conf"
   },

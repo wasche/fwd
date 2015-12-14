@@ -36,6 +36,7 @@ exports.post = function(req, res){
         name: req.body.name
       , target: req.body.url
       , dynamic: !!req.body.dynamic
+      , note: req.body.note
     }
     ;
 

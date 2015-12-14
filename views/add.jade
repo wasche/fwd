@@ -10,14 +10,18 @@ block content
   article
     header
       h1 Add Forward
-    form.inline(method='post', action='/_add')
+    form.inline.add(method='post', action='/_add')
       fieldset
         p
-          | Make http://hostname/
-          input(type='text', name='name', placeholder='pretty-name', size=18)
-          |  redirect to 
-          input(type='text', name='url', placeholder='http://target.url/', size=30)
-          | .
+          | http://#{hostname}/
+          input(type='text', name='name', placeholder='pretty-name')
+        p
+          | should redirect to
+        p
+          input(type='text', name='url', placeholder='http://target.url/')
+        br
+        p
+          input(type='text', name='note', placeholder='Add a note (optional)')
       if host
         fieldset
           input(type='hidden', name='hostname', value=host)
@@ -37,14 +41,18 @@ block content
   article
     header
       h1 Add Dynamic Forward
-    form.inline(method='post', action='/_add')
+    form.inline.add(method='post', action='/_add')
       fieldset
         p
-          | Make http://hostname/
-          input(type='text', name='name', placeholder='prefix{NUM}', size=18)
-          |  redirect to
-          input(type='text', name='url', placeholder='http://target.url/{NUM}', size=30)
-          | .
+          | http://#{hostname}/
+          input(type='text', name='name', placeholder='prefix{NUM}')
+        p
+          | should redirect to
+        p
+          input(type='text', name='url', placeholder='http://target.url/{NUM}')
+        br
+        p
+          input(type='text', name='note', placeholder='Add a note (optional)')
       if host
         fieldset
           input(type='hidden', name='hostname', value=host)

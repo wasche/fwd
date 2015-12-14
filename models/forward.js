@@ -11,6 +11,7 @@ Forward = module.exports = new Schema({
   , updated   : { type: Date,     default: Date.now }
   , accessed  : { type: Date,     default: null     }
   , uses      : { type: Number,   default: 0        }
+  , note      : { type: String,   default: null     }
 });
 
 Forward.methods.touch = function touch(callback){

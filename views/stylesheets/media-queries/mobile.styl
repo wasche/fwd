@@ -85,11 +85,18 @@ nav
 form.inline
   input[type=text]
     border 1px solid color_form_inline_border
-    border-width 0 0 1px 0
+    border-width 0 0 0 0
     padding 0
     background-color color_bg
+    outline none
   input[type=checkbox]
     margin-right 2px
+
+form.add
+  input[name=name]
+    width 150px
+  input[name=url]
+    width 100%
 
 fieldset.hosts
   margin-left 1em
