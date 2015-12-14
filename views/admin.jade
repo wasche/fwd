@@ -23,3 +23,5 @@ block content
                 a(href=fwd.target)= fwd.name
             td= fwd.uses
             td= fwd.accessed ? moment(fwd.accessed).fromNow() : 'never'
+            td
+              a(href='_forward/#{fwd._id}/edit') (edit)
