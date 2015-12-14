@@ -1,0 +1,32 @@
+{
+  "name": "fwd",
+  "description": "url shortener",
+  "main": "bin/fwd.js",
+  "authors": [
+    "Wil Asche <wil@asche.us>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "url",
+    "short"
+  ],
+  "homepage": "https://github.com/wasche/fwd",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.3",
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.1.4",
+    "underscore": "~1.8.3"
+  }
+}
