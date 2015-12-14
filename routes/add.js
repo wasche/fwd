@@ -6,6 +6,7 @@ function save_handler(response){
       response.render('add', {
         title: null
       , error: err
+      , page: 'add'
       });
     } else {
       response.redirect('/');
@@ -22,6 +23,7 @@ exports.get = function(req, res){
         title: null
       , error: null
       , host: domains && domains.length && domains[0]
+      , page: 'add'
       });
     }
   );

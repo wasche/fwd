@@ -4,53 +4,60 @@ block nav
   include nav
 
 block content
-  article
-    header
-      h1 Welcome to fwd
-    p
-      code fwd 
-      | is a URL redirector that uses pretty labels for its shortened urls.
-      | You can see a few of the common and recently used ones on this page.
-      | Alternatively, you can browse them all or add new ones.
-    unless host
-      section
-        h2 Sorry
-        p Couldn't determine your hostname, so personalized forwards won't be available.
+  .row
+    .col-md-9
+      article
+        header
+          h1 Welcome to fwd
+        p
+          code fwd 
+          | is a URL redirector that uses pretty labels for its shortened urls.
+          | You can see a few of the common and recently used ones on this page.
+          | Alternatively, you can browse them all or add new ones.
+        unless host
+          section
+            h2 Sorry
+            p Couldn't determine your hostname, so personalized forwards won't be available.
 
-  aside
-    if user
-      h3.editable
-        .edit
-          a(href='/_user/#{user._id}/') (edit)
-        | #{user.name} (#{host})
-      ul
-        each fwd in user.forwards
-          li
-            if fwd.dynamic
-              = fwd.name
-            else
-              a(href=fwd.target)= fwd.name
-    h3 Latest
-    ul
-      each fwd in latest
-        li
-          unless fwd.dynamic
-            a(href=fwd.target)= fwd.name
-          else
-            = fwd.name
-    h3 Popular
-    ul
-      each fwd in popular
-        li
-          unless fwd.dynamic
-            a(href=fwd.target)= fwd.name
-          else
-            = fwd.name
-    h3 Recent
-    ul
-      each fwd in recent
-        li
-          unless fwd.dynamic
-            a(href=fwd.target)= fwd.name
-          else
-            = fwd.name
+    aside.col-md-3
+      if user
+        h3.editable
+          .edit
+            a(href='/_user/#{user._id}/') (edit)
+          | #{user.name} (#{host})
+        ul
+          each fwd in user.forwards
+            li
+              if fwd.dynamic
+                = fwd.name
+              else
+                a(href=fwd.target)= fwd.name
+      .row
+        h3 Latest
+        .list-group
+          each fwd in latest
+            button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
+              span.label.label-default.label-pill.pull-xs-right= moment(fwd.created).fromNow()
+              unless fwd.dynamic
+                a(href=fwd.target)= fwd.name
+              else
+                = fwd.name
+      .row
+        h3 Popular
+        .list-group
+          each fwd in popular
+            button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
+              span.label.label-default.label-pill.pull-xs-right= fwd.uses
+              unless fwd.dynamic
+                a(href=fwd.target)= fwd.name
+              else
+                = fwd.name
+      .row
+        h3 Recent
+        .list-group
+          each fwd in recent
+            button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
+              unless fwd.dynamic
+                a(href=fwd.target)= fwd.name
+              else
+                = fwd.name

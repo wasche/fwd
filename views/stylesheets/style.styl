@@ -1,22 +1,54 @@
-@import 'h5bp'
+color-user-input = #0275d8
 
-/* ===== Initializr Styles =====================================================
-   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
-   ========================================================================== */
+html
+  position relative
+  min-height 100%
 
 body
-  font 16px/26px Helvetica, Helvetica Neue, Arial
+  // Margin top by nav height
+  margin-top 60px
+  // Margin bottom by footer height
+  margin-bottom 60px
 
-.wrapper
-	width 90%
-	margin 0 5%
+nav
+  .container
+    position relative
 
-//@import 'themes/dark'
-//@import 'themes/orange'
-//@import 'themes/green'
-@import 'themes/minimalist'
+  .navbar-brand
+    &::after
+      content ">>"
+      position absolute
+      left -22px
+      top -51px
+      font-size 80px
+      color #ddd
+      z-index -1
+      font-weight bold
+      letter-spacing -16px
 
-@import 'ie'
-@import 'media-queries'
-@import 'helpers'
-@import 'print'
+aside
+  .row
+    margin-bottom 1em
+
+.container.add
+  .row
+    margin-bottom 2em
+
+  form
+    input[type=text]
+      outline none
+      border none
+      padding 0
+      color color-user-input
+
+    input[name=name]
+      position relative
+      top -2px
+
+.footer
+  position absolute
+  bottom 0
+  width 100%
+  // Set the fixed height of the footer here
+  height 60px
+  background-color #f5f5f5

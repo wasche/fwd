@@ -6,33 +6,29 @@ block head
     if title
       | --
       = title
+  link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
   link(rel='stylesheet', href='/stylesheets/style.css')
   script(src='/javascripts/lib/modernizr-2.5.3-respond-1.1.0.min.js')
 
 block body
 
-  #header-container
-    header.wrapper.clearfix
-      #logo
-        span &gt;
-        span &gt;
-      h1#title
-        a(href='/') fwd
-      nav
-        block nav
+  nav.navbar.navbar-fixed-top.navbar-light.bg-faded
+    .container
+      a.navbar-brand(href='/')
+        | fwd
+      block nav
+  
+  .container(class=typeof page !== 'undefined' ? page : undefined)
+    block content
 
-  #main-container
-    #main.wrapper.clearfix
-      block content
+  footer.navbar.navbar-fixed-bottom.navbar-light.bg-faded
+    block footer
+    .attribution.pull-xs-right
+      | fwd v#{version} //
+      a(href='http://github.com/wasche/fwd') github.com/wasche/fwd
 
-  #footer-container
-    footer.wrapper
-      block footer
-      .attribution
-        | fwd v#{version} //
-        a(href='http://github.com/wasche/fwd') github.com/wasche/fwd
-
-  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js", type='text/javascript')
-  script(type='text/javascript').
-    window.jQuery || document.write('<script src="/javascripts/lib/jquery-1.7.2.min.js"><'+'/script>');
+  script(src="/jquery/dist/jquery.min.js")
+  script(src="/underscore/underscore-min.js")
+  script(src="/bootstrap/dist/js/bootstrap.min.js")
+  script(src="/backbone/backbone-min.js")
   script(type='text/javascript', src='/javascripts/app.js')
