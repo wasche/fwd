@@ -1,11 +1,10 @@
 var mongoose = require('mongoose')
-  , Promise = mongoose.Promise
   , Schema = mongoose.Schema
   , Forward
   ;
 
 Forward = module.exports = new Schema({
-    name      : { type: String,   required: true    }
+    name      : { type: String,   required: true, unique: true }
   , target    : { type: String,   required: true    }
   , dynamic   : { type: Boolean,  default: false    }
   , created   : { type: Date,     default: Date.now }
@@ -21,13 +20,13 @@ Forward.methods.touch = function touch(callback){
 };
 
 Forward.statics.getLatest = function getLatest(callback){
-  return this.find().desc('updated').limit(5).run(callback);
+  return this.find().sort({updated: -1}).limit(5).exec(callback);
 };
 
 Forward.statics.getPopular = function getPopular(callback){
-  return this.find().desc('uses').limit(5).run(callback);
+  return this.find().sort({uses: -1}).limit(5).exec(callback);
 };
 
 Forward.statics.getRecent = function getRecent(callback){
-  return this.find().desc('accessed').limit(5).run(callback);
+  return this.find().sort({accessed: -1}).limit(5).exec(callback);
 };

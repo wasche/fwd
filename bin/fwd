@@ -1,3 +1,7 @@
 #!/usr/bin/env node
 
-require('../lib/server').listen(80);
+var fwd = require('../lib/server')
+  , config = require('../config')
+  ;
+
+fwd.listen(parseInt(config.port));

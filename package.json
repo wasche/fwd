@@ -1,20 +1,29 @@
 {
   "name": "fwd",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
   "subdomain": "fwd",
   "scripts": {
-    "start": "node bin/fwd"
+    "start": "node_modules/nodemon/bin/nodemon.js bin/fwd",
+    "predb": "mkdir -p db log",
+    "db": "mongod --config mongod.conf"
   },
   "dependencies": {
-    "express": "~3.0.0",
-    "jade": "~0.24.0",
-    "stylus": "~0.25.0",
-    "nib": "~0.4.1",
-    "mongoose": "~2.5.14",
-    "express-mongoose": "~0.0.5"
+    "body-parser": "^1.14.1",
+    "errorhandler": "^1.4.2",
+    "express": "^4.13.3",
+    "express-mongoose": "^0.1.0",
+    "jade": "*",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.1",
+    "morgan": "^1.6.1",
+    "nib": "*",
+    "stylus": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
   },
   "engines": {
-    "node": "~0.6.7"
+    "node": "^5.0.0"
   }
 }

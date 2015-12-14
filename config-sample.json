@@ -1,3 +1,4 @@
 {
-  "db": ""
+  "db": "mongodb://localhost/fwd",
+  "port": 3000
 }

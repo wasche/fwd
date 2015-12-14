@@ -7,8 +7,8 @@ exports.path = '/_browse';
 exports.get = function(req, res){
   Forward
   .find({})
-  .asc('name')
-  .run(function(err, docs){
+  .sort({name:1})
+  .exec(function(err, docs){
     res.render('browse', {
       title: null
     , forwards: docs
