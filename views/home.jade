@@ -36,28 +36,31 @@ block content
         h3 Latest
         .list-group
           each fwd in latest
-            button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
-              span.label.label-default.label-pill.pull-xs-right= moment(fwd.created).fromNow()
-              unless fwd.dynamic
-                a(href=fwd.target)= fwd.name
-              else
+            unless fwd.dynamic
+              a.button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined, href=fwd.target)
+                span.label.label-default.label-pill.pull-xs-right= moment(fwd.created).fromNow()
+                = fwd.name
+            else
+              button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
+                span.label.label-default.label-pill.pull-xs-right= moment(fwd.created).fromNow()
                 = fwd.name
       .row
         h3 Popular
         .list-group
           each fwd in popular
-            button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
-              span.label.label-default.label-pill.pull-xs-right= fwd.uses
-              unless fwd.dynamic
-                a(href=fwd.target)= fwd.name
-              else
+            unless fwd.dynamic
+              a.button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined, href=fwd.target)
+                span.label.label-default.label-pill.pull-xs-right= fwd.uses
+                = fwd.name
+            else
+              button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
+                span.label.label-default.label-pill.pull-xs-right= fwd.uses
                 = fwd.name
       .row
         h3 Recent
         .list-group
           each fwd in recent
-            button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
-              unless fwd.dynamic
-                a(href=fwd.target)= fwd.name
-              else
-                = fwd.name
+            unless fwd.dynamic
+              a.button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined, href=fwd.target)= fwd.name
+            else
+              button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)= fwd.name
