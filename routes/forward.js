@@ -1,4 +1,5 @@
 exports.path = '/_forward/:id';
+exports.requiresAuth = true;
 
 exports.post = function(req, res){
   var mongoose = require('mongoose')

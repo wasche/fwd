@@ -4,21 +4,27 @@
   "private": true,
   "subdomain": "fwd",
   "scripts": {
-    "start": "node_modules/nodemon/bin/nodemon.js -w bin -w lib -w models -w routes bin/fwd",
+    "start": "NODE_ENV=development node_modules/nodemon/bin/nodemon.js -w bin -w lib -w models -w routes bin/fwd",
     "predb": "mkdir -p db log",
     "db": "mongod --config mongod.conf"
   },
   "dependencies": {
     "body-parser": "^1.14.1",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.0",
     "errorhandler": "^1.4.2",
     "express": "^4.13.3",
     "express-mongoose": "^0.1.0",
+    "express-session": "^1.12.1",
     "jade": "*",
+    "ldap-client": "^3.1.0",
     "method-override": "^2.3.5",
     "moment": "^2.10.6",
     "mongoose": "^4.3.1",
     "morgan": "^1.6.1",
     "nib": "*",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "stylus": "*"
   },
   "devDependencies": {

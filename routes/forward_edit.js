@@ -1,4 +1,5 @@
 exports.path = '/_forward/:id/edit';
+exports.requiresAuth = true;
 
 exports.get = function(req, res){
   var mongoose = require('mongoose')

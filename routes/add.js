@@ -1,4 +1,5 @@
 exports.path = '/_add';
+exports.requiresAuth = true;
 
 function save_handler(response){
   return function(err){

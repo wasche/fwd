@@ -1,5 +1,6 @@
 {
   "db": "mongodb://localhost/fwd",
   "port": 3000,
-  "hostname": "localhost"
+  "hostname": "localhost",
+  "session_secret": "keyboard cat"
 }

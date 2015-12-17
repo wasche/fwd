@@ -3,6 +3,7 @@ var mongoose = require('mongoose')
   ;
 
 exports.path = '/_admin';
+exports.requiresAuth = true;
 
 exports.get = function(req, res){
   Forward

@@ -28,7 +28,7 @@ block content
             input#personal(type='checkbox', name='personal', checked=false)
             label(for='personal') personal (#{host})
         fieldset
-          input(type='submit', value='Add')
+          input.btn.btn-primary(type='submit', value='Add')
 
     .col-md-3
       if host
@@ -60,7 +60,7 @@ block content
             label(for='personal-dynamic') personal (#{host})
         fieldset
           input(type='hidden', name='dynamic', value='true')
-          input(type='submit', value='Add')
+          input.btn.btn-primary(type='submit', value='Add')
 
     .col-md-3
       h3 Dynamic Forwards
