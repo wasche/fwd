@@ -10,6 +10,7 @@ exports.get = function(req, res){
     res.render('forwards/edit', {
       title: null
     , fwd: fwd
+    , page: 'edit'
     });
   });
 };

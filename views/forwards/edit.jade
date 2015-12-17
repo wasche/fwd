@@ -4,16 +4,23 @@ block nav
   include ../nav
 
 block content
-  article
-    header
+  if error
+  #error.err= error
+
+  .row
+    .col-md-12
       h1 Edit Forward
-    form.inline(method='post', action='/_forward/#{fwd.id}')
-      fieldset
-        p
-          | Make http://hostname/
-          input(type='text', name='name', placeholder='pretty-name', size=18, value=fwd.name)
-          |  redirect to 
-          input(type='text', name='url', placeholder='http://target.url/', size=30, value=fwd.target)
-          | .
-      fieldset
-        input(type='submit', value='Save')
+      form.form-inline(method='post', action='/_forward/#{fwd.id}')
+        fieldset
+          p
+            | http://#{hostname}/
+            input.form-control(type='text', name='name', placeholder='pretty-name', value=fwd.name)
+          p
+            | should redirect to
+          p
+            input.form-control(type='text', name='url', placeholder='http://target.url/', value=fwd.target)
+          br
+          p
+            input.form-control(type='text', name='note', placeholder='Add a note (optional)', value=fwd.note)
+        fieldset
+          input.btn.btn-primary(type='submit', value='Save')
