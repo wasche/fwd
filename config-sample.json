@@ -2,5 +2,13 @@
   "db": "mongodb://localhost/fwd",
   "port": 3000,
   "hostname": "localhost",
-  "session_secret": "keyboard cat"
+  "session_secret": "keyboard cat",
+  "ldap": {
+    "url": "ldaps://server",
+    "searchBase": "dc=com",
+    "searchFilter": "(uid={{username}})",
+    "tlsOptions": {
+      "rejectUnauthorized": false
+    }
+  }
 }
