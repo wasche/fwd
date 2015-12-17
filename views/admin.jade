@@ -4,15 +4,17 @@ block nav
   include nav
 
 block content
-  article
+  .row
     header
-      h1 Available Forwards:
-    table
+      h1 Admin
+    table.table.table-sm.table-hover
       thead
         tr
           th Name
+          th Target
           th Uses
           th Last Used
+          th Actions
       tbody
         each fwd in forwards
           tr.editable
@@ -21,7 +23,9 @@ block content
                 = fwd.name
               else
                 a(href=fwd.target)= fwd.name
+            td= fwd.getFriendlyTarget()
             td= fwd.uses
             td= fwd.accessed ? moment(fwd.accessed).fromNow() : 'never'
-            td
-              a(href='_forward/#{fwd._id}/edit') (edit)
+            td.actions
+              a.glyphicons.edit(href='_forward/#{fwd._id}/edit') &#xe151
+              span.glyphicons.delete &#xe198

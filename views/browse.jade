@@ -5,22 +5,23 @@ block nav
 
 block content
   .row
-  article
     header
-      h1 Available Forwards:
-    table
+      h1 Browse
+    table.table.table-sm.table-hover
       thead
         tr
           th Name
+          th Target
           th Uses
           th Last Used
       tbody
         each fwd in forwards
-          tr.editable
+          tr
             td
               if fwd.dynamic
                 = fwd.name
               else
                 a(href=fwd.target)= fwd.name
+            td= fwd.getFriendlyTarget()
             td= fwd.uses
             td= fwd.accessed ? moment(fwd.accessed).fromNow() : 'never'

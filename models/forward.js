@@ -20,6 +20,10 @@ Forward.methods.touch = function touch(callback){
   return this.save(callback);
 };
 
+Forward.methods.getFriendlyTarget = function getFriendlyTarget(){
+  return this.target.replace(/^https?:\/\/(www\.)?/,'');
+};
+
 Forward.statics.getLatest = function getLatest(callback){
   return this.find().sort({updated: -1}).limit(5).exec(callback);
 };

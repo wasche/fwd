@@ -12,6 +12,7 @@ exports.get = function(req, res){
     res.render('admin', {
       title: null
     , forwards: docs
+    , page: 'admin'
     });
   });
 };
