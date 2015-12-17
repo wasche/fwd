@@ -9,7 +9,9 @@ block head
   link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
   link(rel='stylesheet', href='/stylesheets/glyphicons.css')
   link(rel='stylesheet', href='/stylesheets/style.css')
-  script(src='/javascripts/lib/modernizr-2.5.3-respond-1.1.0.min.js')
+  script(type='text/javascript').
+    var appName = "#{app ? 'app/' + app : 'app'}";
+  script(type='text/javascript', data-main='/javascripts/config', src='/requirejs/require.js')
 
 block body
 
@@ -27,9 +29,3 @@ block body
     .attribution.pull-xs-right
       | fwd v#{version} //
       a(href='http://github.com/wasche/fwd') github.com/wasche/fwd
-
-  script(src="/jquery/dist/jquery.min.js")
-  script(src="/underscore/underscore-min.js")
-  script(src="/bootstrap/dist/js/bootstrap.min.js")
-  script(src="/backbone/backbone-min.js")
-  script(type='text/javascript', src='/javascripts/app.js')

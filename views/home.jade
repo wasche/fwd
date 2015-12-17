@@ -14,53 +14,53 @@ block content
           | is a URL redirector that uses pretty labels for its shortened urls.
           | You can see a few of the common and recently used ones on this page.
           | Alternatively, you can browse them all or add new ones.
-        unless host
-          section
-            h2 Sorry
-            p Couldn't determine your hostname, so personalized forwards won't be available.
+        //- unless host
+        //-   section
+        //-     h2 Sorry
+        //-     p Couldn't determine your hostname, so personalized forwards won't be available.
 
-    aside.col-md-3
-      if user
-        h3.editable
-          .edit
-            a(href='/_user/#{user._id}/') (edit)
-          | #{user.name} (#{host})
-        ul
-          each fwd in user.forwards
-            li
-              if fwd.dynamic
-                = fwd.name
-              else
-                a(href=fwd.target)= fwd.name
-      .row
-        h3 Latest
-        .list-group
-          each fwd in latest
-            unless fwd.dynamic
-              a.button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined, href=fwd.target)
-                span.label.label-default.label-pill.pull-xs-right= moment(fwd.created).fromNow()
-                = fwd.name
-            else
-              button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
-                span.label.label-default.label-pill.pull-xs-right= moment(fwd.created).fromNow()
-                = fwd.name
-      .row
-        h3 Popular
-        .list-group
-          each fwd in popular
-            unless fwd.dynamic
-              a.button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined, href=fwd.target)
-                span.label.label-default.label-pill.pull-xs-right= fwd.uses
-                = fwd.name
-            else
-              button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
-                span.label.label-default.label-pill.pull-xs-right= fwd.uses
-                = fwd.name
-      .row
-        h3 Recent
-        .list-group
-          each fwd in recent
-            unless fwd.dynamic
-              a.button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined, href=fwd.target)= fwd.name
-            else
-              button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)= fwd.name
+    //- aside.col-md-3
+    //-   if user
+    //-     h3.editable
+    //-       .edit
+    //-         a(href='/_user/#{user._id}/') (edit)
+    //-       | #{user.name} (#{host})
+    //-     ul
+    //-       each fwd in user.forwards
+    //-         li
+    //-           if fwd.dynamic
+    //-             = fwd.name
+    //-           else
+    //-             a(href=fwd.target)= fwd.name
+      //- .row
+      //-   h3 Latest
+      //-   .list-group
+      //-     each fwd in latest
+      //-       unless fwd.dynamic
+      //-         a.button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined, href=fwd.target)
+      //-           span.label.label-default.label-pill.pull-xs-right= moment(fwd.created).fromNow()
+      //-           = fwd.name
+      //-       else
+      //-         button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
+      //-           span.label.label-default.label-pill.pull-xs-right= moment(fwd.created).fromNow()
+      //-           = fwd.name
+      //- .row
+      //-   h3 Popular
+      //-   .list-group
+      //-     each fwd in popular
+      //-       unless fwd.dynamic
+      //-         a.button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined, href=fwd.target)
+      //-           span.label.label-default.label-pill.pull-xs-right= fwd.uses
+      //-           = fwd.name
+      //-       else
+      //-         button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)
+      //-           span.label.label-default.label-pill.pull-xs-right= fwd.uses
+      //-           = fwd.name
+      //- .row
+      //-   h3 Recent
+      //-   .list-group
+      //-     each fwd in recent
+      //-       unless fwd.dynamic
+      //-         a.button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined, href=fwd.target)= fwd.name
+      //-       else
+      //-         button.list-group-item(type='button', class=fwd.dynamic ? 'disabled' : undefined)= fwd.name

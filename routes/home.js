@@ -33,9 +33,7 @@ exports.get = function(req, res){
                 title: null
               , user: null
               , host: domains && domains.length && domains[0]
-              , latest: latest
-              , recent: recent
-              , popular: popular
+              , app: 'home'
               });
             }
           });
