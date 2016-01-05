@@ -14,10 +14,13 @@ define(['jquery', 'backbone'], function($, Backbone){
 
   });
 
+  var App = function(){
+    this.el = $('.container .home');
+  };
 
   return {
     initialize: function(){
-      console.log('home app initialized');
+      new App();
     }
   };
 

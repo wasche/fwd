@@ -24,6 +24,7 @@
     "nib": "*",
     "passport": "^0.3.2",
     "passport-ldapauth": "^0.5.0",
+    "serve-favicon": "^2.3.0",
     "stylus": "*"
   },
   "devDependencies": {

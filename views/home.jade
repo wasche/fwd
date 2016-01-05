@@ -6,14 +6,17 @@ block nav
 block content
   .row
     .col-md-9
-      article
-        header
-          h1 Welcome to fwd
-        p
-          code fwd 
-          | is a URL redirector that uses pretty labels for its shortened urls.
+      .jumbotron
+        h1.display-3 Welcome to fwd
+        p.lead
+          | <code>fwd</code> is a URL redirector that uses pretty labels for its shortened urls.
           | You can see a few of the common and recently used ones on this page.
           | Alternatively, you can browse them all or add new ones.
+    .col-md-3
+      .row.latest
+      .row.popular
+      .row.recent
+          
         //- unless host
         //-   section
         //-     h2 Sorry
