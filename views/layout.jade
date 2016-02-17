@@ -18,7 +18,7 @@ block body
       a.navbar-brand(href='/')
         | fwd
       block nav
-  
+
   .container(class=typeof page !== 'undefined' ? page : undefined)
     block content
 
@@ -30,6 +30,7 @@ block body
 
   script(src="/jquery/dist/jquery.min.js")
   script(src="/underscore/underscore-min.js")
+  script(src="/tether/dist/js/tether.min.js")  
   script(src="/bootstrap/dist/js/bootstrap.min.js")
   script(src="/backbone/backbone-min.js")
   script(type='text/javascript', src='/javascripts/app.js')
