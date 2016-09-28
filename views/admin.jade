@@ -28,4 +28,4 @@ block content
             td= fwd.accessed ? moment(fwd.accessed).fromNow() : 'never'
             td.actions
               a.glyphicons.edit(href='_forward/#{fwd._id}/edit') &#xe151
-              span.glyphicons.delete &#xe198
+              a.glyphicons.delete(href='_forward/#{fwd._id}/delete') &#xe198
