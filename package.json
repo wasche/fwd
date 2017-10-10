@@ -1,6 +1,6 @@
 {
   "name": "fwd",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "private": true,
   "subdomain": "fwd",
   "scripts": {
@@ -9,27 +9,26 @@
     "db": "mongod --config mongod.conf"
   },
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "connect-ensure-login": "^0.1.1",
-    "cookie-parser": "^1.4.0",
-    "errorhandler": "^1.4.2",
-    "express": "^4.13.3",
-    "express-mongoose": "^0.1.0",
-    "express-session": "^1.12.1",
-    "jade": "*",
-    "method-override": "^2.3.5",
-    "moment": "^2.10.6",
-    "mongoose": "^4.3.1",
-    "morgan": "^1.6.1",
-    "nib": "*",
-    "passport": "^0.3.2",
-    "passport-ldapauth": "^0.5.0",
-    "stylus": "*"
+    "any-db": "^2.2.0",
+    "any-db-postgres": "^2.1.5",
+    "koa": "^2.3.0",
+    "koa-better-router": "^2.1.1",
+    "koa-body": "^2.5.0",
+    "koa-passport": "^4.0.1",
+    "koa-session": "^5.5.0",
+    "passport-ldapauth": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "*"
+    "eslint": "^4.8.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-standard": "^3.0.1"
   },
   "engines": {
-    "node": "^5.0.0"
+    "node": ">7.6.0"
   }
 }

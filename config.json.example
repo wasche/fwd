@@ -1,0 +1,13 @@
+{
+  "db": "postgres://user:pass@hostname/database",
+  "port": 3000,
+  "keys": ["session keys"],
+  "ldap": {
+    "url": "ldaps://ldap.domain.com",
+    "searchBase": "ou=people,dc=company,dc=com",
+    "searchFilter": "(uid={{username}})",
+    "tlsOptions": {
+      "rejectUnauthorized": false
+    }
+  }
+}
