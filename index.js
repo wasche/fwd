@@ -30,13 +30,31 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // routing
-const Router = require('koa-better-router')
-let router = Router().loadMethods()
-require('./routes').install(router)
-app.use(router.middleware())
+require('./routes')(app)
+// const router = require('koa-route')
+// app.use(router.get('/', (ctx) => {
+//   ctx.body = 'Hello world!'
+// }))
+// app.use(router.get('/:route', (ctx, route) => {
+//   console.log('simple', route)
+// }))
+// app.use(router.get('/:route/:query', (ctx, route, query) => {
+//   console.log('query', route, query)
+// }))
+// const Router = require('koa-better-router')
+// let router = Router()
+// require('./routes').install(router)
+// router.get('/', (ctx, next) => {
+//   ctx.body = 'Hello world!'
+//   return next()
+// })
+// console.dir(router.getRoutes())
+// app.use(router.middleware())
 
-let api = Router({ prefix: '_' })
-require('./reoutes-api').install(api)
-app.use(api.middleware())
+// let api = Router({ prefix: '_' })
+// let loaderApi = require('./routes-api').install(api)
+// console.dir(api.getRoutes())
+// app.use(api.middleware())
 
 app.listen(config.port)
+console.log('Server started on port ' + config.port)

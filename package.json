@@ -4,9 +4,7 @@
   "private": true,
   "subdomain": "fwd",
   "scripts": {
-    "start": "NODE_ENV=development node_modules/nodemon/bin/nodemon.js -w bin -w lib -w models -w routes bin/fwd",
-    "predb": "mkdir -p db log",
-    "db": "mongod --config mongod.conf"
+    "start": "node index.js"
   },
   "dependencies": {
     "any-db": "^2.2.0",
@@ -14,7 +12,11 @@
     "koa": "^2.3.0",
     "koa-better-router": "^2.1.1",
     "koa-body": "^2.5.0",
+    "koa-compose": "^4.0.0",
+    "koa-compressor": "^1.0.3",
     "koa-passport": "^4.0.1",
+    "koa-respond": "^1.0.1",
+    "koa-route": "^3.2.0",
     "koa-session": "^5.5.0",
     "passport-ldapauth": "^2.0.0"
   },
