@@ -6,7 +6,6 @@ exports.handler = async (ctx, next) => {
     ctx.db.query(
       'select url from routes where name = \'' + ctx.params.route + '\';',
       (err, result) => {
-        console.log('forward', ctx.params.route, err || result)
         if (err) ctx.badRequest(err)
         else ctx.redirect(result.rows && result.rows[0].url)
         resolve(next())

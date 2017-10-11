@@ -2,6 +2,7 @@ const config = require('./config')
 const Koa = require('koa')
 const app = new Koa()
 
+// context settings
 app.context.db = require('any-db').createConnection(config.db)
 
 // for parsing form data
@@ -28,7 +29,7 @@ passport.deserializeUser(function (id, fn) {
 app.use(passport.initialize())
 app.use(passport.session())
 
-//
+// helpers
 app.use(require('koa-respond')())
 
 // logging
@@ -44,17 +45,9 @@ app.on('error', (err, ctx) => {
 })
 
 // routing
-let router = require('./routes')
-app.use(router.middleware())
-
-// let api = require('koa-better-router')({ prefix: '/_' }).loadMethods()
-// api.get('/', async (ctx, next) => {
-//   console.log('GET api /')
-//   ctx.body = 'list routes'
-//   return next()
-// })
-// console.dir(api.getRoutes())
+app.use(require('./routes').middleware())
 app.use(require('./routes-api').middleware())
 
+// start
 app.listen(config.port)
 console.log('Server started on port ' + config.port)
