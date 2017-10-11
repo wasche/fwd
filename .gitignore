@@ -4,3 +4,4 @@ mongod.conf
 db
 bower_components
 nohup.out
+build

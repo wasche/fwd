@@ -1,5 +1,8 @@
+const createReadStream = require('fs').createReadStream
+
 exports.route = 'GET /'
 exports.handler = async (ctx, next) => {
-  ctx.body = 'Hello world!'
+  ctx.type = 'html'
+  ctx.body = createReadStream('./index.html')
   return next()
 }

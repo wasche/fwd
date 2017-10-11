@@ -32,6 +32,9 @@ app.use(passport.session())
 // helpers
 app.use(require('koa-respond')())
 
+// webpack
+app.use(require('koa-webpack')())
+
 // logging
 app.use(async (ctx, next) => {
   const start = Date.now()
