@@ -25,7 +25,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.styl']
   },
   module: {
     rules: [
@@ -34,12 +34,27 @@ module.exports = {
         test: /\.jsx?$/,
         loaders: ['babel-loader', 'eslint-loader'],
         include: APP_DIR
+      },
+      {
+        test: /\.jsx?$/,
+        include: APP_DIR,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.styl$/,
+        include: APP_DIR,
+        loader: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'stylus-loader',
+            options: {
+              use: [require('nib')()],
+              import: [path.resolve(__dirname, 'node_modules/nib/lib/nib/index.styl')]
+            }
+          }
+        ]
       }
-    ],
-    loaders: [{
-      test: /\.jsx?$/,
-      include: APP_DIR,
-      loader: 'babel-loader'
-    }]
+    ]
   }
 }
