@@ -1,3 +1,4 @@
-module.exports = async ctx => {
+exports.route = 'GET /'
+exports.handler = ctx => {
   ctx.body = 'Hello world!'
 }

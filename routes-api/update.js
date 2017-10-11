@@ -1,6 +1,6 @@
 exports.route = 'PUT /:id'
 exports.authenticated = true
-exports.handler = (ctx, next) => {
+exports.handler = async (ctx, next) => {
   // TODO
   return next()
 }

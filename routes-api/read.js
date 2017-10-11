@@ -1,5 +1,5 @@
 exports.route = 'GET /'
-exports.handler = (ctx, next) => {
-  // TODO
+exports.handler = async (ctx, next) => {
+  ctx.body = 'list routes'
   return next()
 }
