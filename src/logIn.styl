@@ -1,0 +1,31 @@
+.logIn
+  display none
+  flex-direction column
+
+  p
+    margin-bottom 1em
+
+  div[role='group']
+    display flex
+    flex-direction row
+    justify-content space-between
+
+    input
+      width 40%
+      padding 5px
+      box-sizing border-box
+      font-size 16px
+
+    button
+      font-size 16px
+      cursor pointer
+
+#App.log-in
+  top calc(50vh - 125px)
+  bottom calc(50vh - 125px)
+  left calc(50vw - 225px)
+  right calc(50vw - 225px)
+  transition top 1s, left 1s, bottom 1s, right 1s
+
+  .logIn
+    display flex

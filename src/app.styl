@@ -13,20 +13,55 @@ a
     text-decoration underline
 
 #App
-  width 350px
-  height 250px
   position absolute
-  top calc(50vh - 125px)
-  left calc(50vw - 175px)
   display flex
   flex-direction column
-  box-sizing border-box
   align-content stretch
-  transition width 1s, height 1s, left 1s, top 1s
+  box-sizing border-box
+  top 0
+  left 0
+  bottom 0
+  right 0
+  transition top 1s, left 1s, bottom 1s, right 1s
 
-  &.add
-    left 0
-    top 0
-    width 100vw
-    height 100vh
-    transition width 1s, height 1s, left 1s, top 1s
+.row
+  display flex
+  flex-direction row
+
+input
+  padding 5px
+  box-sizing border-box
+  font-size 16px
+
+button
+  font-size 16px
+  cursor pointer
+
+.input-group
+  display flex
+  flex-direction row
+  font-size 16px
+
+  input,
+  span,
+  ul
+    border 1px solid gray
+    border-width 1px 0 1px 0
+    &:first-child
+      border-left-width 1px
+      border-radius 10px 0 0 10px
+    &:last-child
+      border-right-width 1px
+      border-radius 0 10px 10px 0
+
+  // match font with input
+  span,
+  ul
+    padding 5px
+    color gray
+
+  ul
+    li
+      display none
+      &.selected
+        display block
