@@ -1,4 +1,4 @@
-footer
+.footer
   display flex
   flex-direction row
   justify-content space-between
@@ -14,14 +14,27 @@ footer
       color gray
 
   #App.browse &
-    padding 5px 1em
+    padding 5px 1em 1em
+
+    dl
+      display flex
+      white-space nowrap
+      overflow hidden
+      &:nth-child(n+2)
+        margin-left 20px
+      &:hover
+        overflow visible
 
     dt
-      display inline-block
+      margin-bottom 0
       margin-right 8px
 
+    div
+      display flex
+      min-width 0
+
     dd
-      display inline-block
+      line-height 1em
       &:nth-child(n+2)
         margin-left 5px
 

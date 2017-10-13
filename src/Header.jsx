@@ -6,7 +6,7 @@ import './header'
 export default class Header extends Component {
   render () {
     return (
-      <header>
+      <header className='header'>
         <h1>fwd</h1>
         <Link view='add' label='Add' changeView={this.props.changeView} />
         <Link view='browse' label='Browse' changeView={this.props.changeView} />

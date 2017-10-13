@@ -4,30 +4,36 @@ import './footer'
 export default class Footer extends Component {
   render () {
     return (
-      <footer>
+      <footer className='footer'>
         <dl>
           <dt>Popular</dt>
-          <dd>one</dd>
-          <dd>two</dd>
-          <dd>three</dd>
-          <dd>four</dd>
-          <dd>five</dd>
+          <div>
+            <dd>one</dd>
+            <dd>two</dd>
+            <dd>three</dd>
+            <dd>four</dd>
+            <dd>five</dd>
+          </div>
         </dl>
         <dl>
           <dt>Latest</dt>
-          <dd>one</dd>
-          <dd>two</dd>
-          <dd>three</dd>
-          <dd>four</dd>
-          <dd>five</dd>
+          <div>
+            <dd>one</dd>
+            <dd>two</dd>
+            <dd>three</dd>
+            <dd>four</dd>
+            <dd>five</dd>
+          </div>
         </dl>
         <dl>
           <dt>Recent</dt>
-          <dd>one</dd>
-          <dd>two</dd>
-          <dd>three</dd>
-          <dd>four</dd>
-          <dd>five</dd>
+          <div>
+            <dd>one</dd>
+            <dd>two</dd>
+            <dd>three</dd>
+            <dd>four</dd>
+            <dd>five</dd>
+          </div>
         </dl>
       </footer>
     )

@@ -4,7 +4,7 @@
   "private": true,
   "subdomain": "fwd",
   "scripts": {
-    "start": "nodemon --ignore src/ --ignore migrate.js index.js",
+    "start": "nodemon index.js",
     "dev": "node_modules/.bin/webpack-dev-server"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
+    "isomorphic-fetch": "^2.2.1",
     "koa": "^2.3.0",
     "koa-better-router": "^2.1.1",
     "koa-body": "^2.5.0",
@@ -51,5 +52,8 @@
   },
   "engines": {
     "node": ">7.6.0"
+  },
+  "nodemonConfig": {
+    "ignore": ["src", "migrate.js", ".babelrc", ".eslintrc", ".gitignore", ".npmignore"]
   }
 }

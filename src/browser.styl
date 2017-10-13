@@ -1,0 +1,41 @@
+.browser
+  display none
+  flex-direction column
+  padding 0 1em
+  max-width calc(100vw - 2em)
+
+  header b,
+  main div span
+    overflow hidden
+    text-overflow ellipsis
+    &:first-child
+      width 20%
+    &:nth-child(2)
+      width 50%
+    &:nth-child(3)
+      width 10%
+    &:nth-child(4)
+      width 10%
+
+  header
+    display flex
+    border-bottom 1px solid gray
+    min-height 1em
+    justify-content space-between
+
+  main
+    flex-grow 1
+    margin 5px 0
+    overflow auto
+    div
+      display flex
+      white-space nowrap
+      justify-content space-between
+
+  footer
+    border-top 1px solid gray
+    margin-bottom .5em
+    min-height 1em
+
+  #App.browse &
+    display flex
