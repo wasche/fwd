@@ -52,5 +52,12 @@ app.use(require('./routes').middleware())
 app.use(require('./routes-api').middleware())
 
 // start
-app.listen(config.port)
+require('http').createServer(app.callback()).listen(config.port)
+if (config.ssl) {
+  const fs = require('fs')
+  require('https').createServer({
+    key: fs.readFileSync(config.ssl.key),
+    cert: fs.readFileSync(config.ssl.cert)
+  }, app.callback()).listen(config.ssl.port)
+}
 console.log('Server started on port ' + config.port)

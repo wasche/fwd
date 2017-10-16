@@ -25,7 +25,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.styl']
+    extensions: ['.js', '.jsx', '.styl', '.sass']
   },
   module: {
     rules: [
@@ -46,13 +46,16 @@ module.exports = {
         loader: [
           'style-loader',
           'css-loader',
-          {
-            loader: 'stylus-loader',
-            options: {
-              use: [require('nib')()],
-              import: [path.resolve(__dirname, 'node_modules/nib/lib/nib/index.styl')]
-            }
-          }
+          'stylus-loader'
+        ]
+      },
+      {
+        test: /\.sass$/,
+        include: APP_DIR,
+        loader: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
         ]
       }
     ]

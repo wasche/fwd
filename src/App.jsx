@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Content from './Content'
+import './base'
 import './app'
 
 export default class App extends Component {
@@ -21,7 +22,7 @@ export default class App extends Component {
     return (
       <div id='App' className={this.state.view}>
         <Header changeView={this.handleViewChange} />
-        <Content setLoggedIn={this.setLoggedIn} />
+        <Content setLoggedIn={this.setLoggedIn} currentView={this.state.view} changeView={this.handleViewChange} />
         <Footer />
       </div>
     )
@@ -29,7 +30,7 @@ export default class App extends Component {
 
   handleViewChange (view) {
     this.setState(state => {
-      state.view = (state.loggedIn && view) || 'log-in'
+      state.view = ((state.loggedIn || ['add', 'edit', 'update'].indexOf(view) < 0) && view) || 'log-in'
       state.requestedView = (!state.loggedIn && view) || null
       return state
     })

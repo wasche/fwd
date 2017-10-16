@@ -1,6 +1,11 @@
 {
   "db": "postgres://user:pass@hostname/database",
   "port": 3000,
+  "ssl": {
+    "port": 3001,
+    "key": "path/to/file",
+    "cert": "path/to/file"
+  },
   "keys": ["session keys"],
   "ldap": {
     "url": "ldaps://ldap.domain.com",

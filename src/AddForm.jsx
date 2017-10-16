@@ -1,30 +1,71 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import './addForm'
 
 export default class AddForm extends Component {
+  constructor () {
+    super()
+    this.submit = this.submit.bind(this)
+    this.cancel = this.cancel.bind(this)
+  }
+
   render () {
     return (
-      <form className='addForm' onSubmit={e => e.preventDefault()}>
-        <div className='row'>
-          <div className='input-group'>
-            <span>hostname/</span>
-            <input type='text' name='name' placeholder='name' />
-            <ul>
-              <li className='selected'>{'{none}'}</li>
-              <li>{'{NUM}'}</li>
-              <li>{'{/:query}'}</li>
-            </ul>
+      <form className='addForm container is-fluid' onSubmit={e => e.preventDefault()}>
+        <div className='field has-addons'>
+          <span className='control'>
+            <a className='button is-static'>hostname/</a>
+          </span>
+          <div className='control is-expanded'>
+            <input className='input' type='text' name='name' placeholder='name' />
+          </div>
+          <span className='control'>
+            <span className='select'>
+              <select>
+                <option defaultValue>{'{none}'}</option>
+                <option>{'{NUM}'}</option>
+                <option>{'{/:query}'}</option>
+              </select>
+            </span>
+          </span>
+        </div>
+        <div className='content'>
+          <p><em>should redirect to</em></p>
+        </div>
+        <div className='field has-addons'>
+          <span className='control'>
+            <span className='select'>
+              <select>
+                <option defaultValue>https://</option>
+                <option>http://</option>
+              </select>
+            </span>
+          </span>
+          <div className='control is-expanded'>
+            <input className='input' type='text' name='url' placeholder='url' />
           </div>
         </div>
-        <span>should redirect to</span>
-        <div className='input-group'>
-          <ul>
-            <li className='selected'>https://</li>
-            <li>http://</li>
-          </ul>
-          <input type='text' name='url' placeholder='url' />
+        <div className='field is-grouped is-grouped-centered'>
+          <div className='control'>
+            <button className='button is-primary' onClick={this.submit}>Add</button>
+          </div>
+          <div className='control'>
+            <a className='button is-light' onClick={this.cancel}>Cancel</a>
+          </div>
         </div>
       </form>
     )
   }
+
+  submit () {
+    this.props.changeView('welcome')
+  }
+
+  cancel () {
+    this.props.changeView('welcome')
+  }
+}
+
+AddForm.propTypes = {
+  changeView: PropTypes.func.isRequired
 }

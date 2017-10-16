@@ -12,13 +12,15 @@ export default class Content extends Component {
       <section>
         <Welcome />
         <LogIn setLoggedIn={this.props.setLoggedIn} />
-        <AddForm />
-        <Browser />
+        <AddForm changeView={this.props.changeView} />
+        <Browser currentView={this.props.currentView} />
       </section>
     )
   }
 }
 
 Content.propTypes = {
-  setLoggedIn: PropTypes.func.isRequired
+  setLoggedIn: PropTypes.func.isRequired,
+  currentView: PropTypes.string.isRequired,
+  changeView: PropTypes.func.isRequired
 }
