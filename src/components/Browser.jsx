@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import fetch from 'isomorphic-fetch'
 import './browser'
 
 export default class Browser extends Component {
@@ -39,26 +38,11 @@ export default class Browser extends Component {
   }
 
   componentWillUpdate (props, state) {
-    if (props.view === 'browse' && !this.state.routes.length) this.fetchRoutes()
-  }
-
-  fetchRoutes () {
-    // fetch routes
-    setTimeout(() => {
-      fetch('/_/', {
-        credentials: 'same-origin'
-      })
-        .then(res => res.json())
-        .then(json => {
-          this.setState(state => {
-            state.routes = json
-            return state
-          })
-        })
-    }, 0)
+    if (props.view === 'browse' && !this.state.routes.length) this.props.fetchRoutes()
   }
 }
 
 Browser.propTypes = {
-  view: PropTypes.string.isRequired
+  view: PropTypes.string.isRequired,
+  fetchRoutes: PropTypes.func.isRequired
 }

@@ -1,18 +1,21 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import './footer'
 
 export default class Footer extends Component {
   render () {
+    let popular = this.props.routes.items
+      .sort((a, b) => { return a.count > b.count ? 1 : b.count > a ? -1 : 0 })
+      .map(r => {
+        return (<span key={r.id}>{r.name}</span>)
+      })
+      .slice(0, 5)
     return (
       <footer className='footer'>
         <dl>
           <dt>Popular</dt>
           <div>
-            <dd>one</dd>
-            <dd>two</dd>
-            <dd>three</dd>
-            <dd>four</dd>
-            <dd>five</dd>
+            {popular}
           </div>
         </dl>
         <dl>
@@ -38,4 +41,13 @@ export default class Footer extends Component {
       </footer>
     )
   }
+
+  componentDidMount () {
+    this.props.loadRoutes()
+  }
+}
+
+Footer.propTypes = {
+  routes: PropTypes.object.isRequired,
+  loadRoutes: PropTypes.func.isRequired
 }

@@ -1,15 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
 import { AppContainer } from 'react-hot-loader'
-import app from './reducers'
+import store from './store'
 import App from './containers/App'
 
 const rootEl = document.getElementById('app-root')
-
-let store = createStore(app)
-store.dispatch({ type: 'SET_VIEW', view: 'welcome' })
 
 const render = Component => {
   ReactDOM.render(

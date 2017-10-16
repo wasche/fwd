@@ -1,16 +1,16 @@
 import { connect } from 'react-redux'
 import { loadRoutes } from '../actions'
-import Component from '../components/Browser'
+import Component from '../components/Footer'
 
 const mapStateToProps = state => {
   return {
-    view: state.view.name
+    routes: state.routes
   }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    fetchRoutes: () => {
+    loadRoutes: () => {
       dispatch(loadRoutes())
     }
   }
