@@ -39,24 +39,26 @@ export default class Browser extends Component {
   }
 
   componentWillUpdate (props, state) {
-    if (props.currentView === 'browse' && !this.state.routes.length) this.fetchRoutes()
+    if (props.view === 'browse' && !this.state.routes.length) this.fetchRoutes()
   }
 
   fetchRoutes () {
     // fetch routes
-    fetch('/_/', {
-      credentials: 'same-origin'
-    })
-      .then(res => res.json())
-      .then(json => {
-        this.setState(state => {
-          state.routes = json
-          return state
-        })
+    setTimeout(() => {
+      fetch('/_/', {
+        credentials: 'same-origin'
       })
+        .then(res => res.json())
+        .then(json => {
+          this.setState(state => {
+            state.routes = json
+            return state
+          })
+        })
+    }, 0)
   }
 }
 
 Browser.propTypes = {
-  currentView: PropTypes.string.isRequired
+  view: PropTypes.string.isRequired
 }
