@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import view from './view'
+import session from './session'
 import routes from './routes'
 
 export default combineReducers({
-  view,
+  session,
   routes
 })

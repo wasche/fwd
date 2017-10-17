@@ -1,24 +1,19 @@
 import fetch from 'isomorphic-fetch'
 import store from '../store'
 
-export const SET_VIEW = 'SET_VIEW'
-export const LOG_IN = 'LOG_IN'
-
-export const LOAD_ROUTES = 'LOAD'
-
-export const changeView = view => {
-  return {
-    type: SET_VIEW,
-    view
-  }
-}
-
+export const SESSION = 'SESSION'
 export const logIn = () => {
   return {
-    type: LOG_IN
+    type: SESSION,
+    payload: new Promise(resolve => {
+      setTimeout(() => {
+        resolve()
+      }, 1000)
+    })
   }
 }
 
+export const LOAD_ROUTES = 'LOAD'
 export const loadRoutes = () => {
   return {
     type: LOAD_ROUTES,

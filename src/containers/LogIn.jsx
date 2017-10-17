@@ -3,12 +3,14 @@ import { logIn } from '../actions'
 import Component from '../components/LogIn'
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    loggedIn: state.session.loggedIn
+  }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    logIn: view => {
+    logIn: session => {
       dispatch(logIn())
     }
   }

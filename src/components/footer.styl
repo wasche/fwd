@@ -1,34 +1,10 @@
-.footer
+.hero-foot
+  .columns
+    margin-left 0
+    margin-right 0
+    &:last-child
+      margin-bottom 0
   h3
     font-weight bold
   a
     display block
-
-  #App.browse &
-    padding 5px 1em 1em
-
-    dl
-      display flex
-      white-space nowrap
-      overflow hidden
-      &:nth-child(n+2)
-        margin-left 20px
-      &:hover
-        overflow visible
-
-    dt
-      margin-bottom 0
-      margin-right 8px
-
-    div
-      display flex
-      min-width 0
-
-    dd
-      line-height 1em
-      &:nth-child(n+2)
-        margin-left 5px
-
-  #App.add &,
-  #App.log-in &
-    display none

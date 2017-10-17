@@ -24,18 +24,20 @@ export default class Footer extends Component {
         return (<Forward key={r.id} label={r.name} url={r.url} />)
       })
     return (
-      <footer className='footer columns'>
-        <div className='column'>
-          <h3>Popular</h3>
-          {popular}
-        </div>
-        <div className='column'>
-          <h3>Latest</h3>
-          {latest}
-        </div>
-        <div className='column'>
-          <h3>Recent</h3>
-          {recent}
+      <footer className='hero-foot'>
+        <div className='columns is-centered'>
+          <div className='column is-narrow'>
+            <h3>Popular</h3>
+            {popular}
+          </div>
+          <div className='column is-narrow'>
+            <h3>Latest</h3>
+            {latest}
+          </div>
+          <div className='column is-narrow'>
+            <h3>Recent</h3>
+            {recent}
+          </div>
         </div>
       </footer>
     )

@@ -5,9 +5,6 @@ import rootReducer from './reducers'
 
 export default createStore(
   rootReducer,
-  {
-    view: {name: 'welcome'}
-  },
   applyMiddleware(
     promises(),
     createLogger()

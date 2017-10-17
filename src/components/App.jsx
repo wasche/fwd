@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
+import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Header from './Header'
-import Footer from '../containers/Footer'
 import Content from './Content'
 import '../base'
 import './app'
 
-export default class App extends Component {
+class App extends Component {
   constructor () {
     super()
     this.resetView = this.resetView.bind(this)
@@ -14,17 +14,16 @@ export default class App extends Component {
 
   render () {
     return (
-      <div id='App' className={this.props.view}>
+      <div id='App' className='hero is-fullheight is-dark is-bold'>
         <Header />
         <Content />
-        <Footer />
       </div>
     )
   }
 
   resetView (e) {
     if (e.keyCode !== 27) return
-    this.props.resetView()
+    this.props.history.push({ pathname: '/' })
   }
 
   componentDidMount () {
@@ -37,6 +36,7 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  view: PropTypes.string.isRequired,
-  resetView: PropTypes.func.isRequired
+  history: PropTypes.object.isRequired
 }
+
+export default withRouter(App)
