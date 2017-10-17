@@ -17,6 +17,8 @@
     "babel-preset-react": "^6.24.1",
     "bulma": "^0.6.0",
     "css-loader": "^0.28.7",
+    "file-loader": "^1.1.5",
+    "font-awesome": "^4.7.0",
     "isomorphic-fetch": "^2.2.1",
     "koa": "^2.3.0",
     "koa-better-router": "^2.1.1",
@@ -26,6 +28,7 @@
     "koa-passport": "^4.0.1",
     "koa-respond": "^1.0.1",
     "koa-session": "^5.5.0",
+    "koa-sslify": "^2.1.2",
     "koa-webpack": "^1.0.0",
     "node-sass": "^4.5.3",
     "passport-ldapauth": "^2.0.0",
@@ -41,6 +44,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "type-to-reducer": "^1.0.4",
+    "url-loader": "^0.6.2",
     "webpack": "^3.6.0"
   },
   "devDependencies": {

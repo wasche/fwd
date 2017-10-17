@@ -2,6 +2,9 @@ const config = require('./config')
 const Koa = require('koa')
 const app = new Koa()
 
+const DEFAULT_PORT = 80
+const DEFAULT_SSL_PORT = 443
+
 // context settings
 app.context.db = require('any-db').createConnection(config.db)
 
@@ -52,12 +55,13 @@ app.use(require('./routes').middleware())
 app.use(require('./routes-api').middleware())
 
 // start
-require('http').createServer(app.callback()).listen(config.port)
+require('http').createServer(app.callback()).listen(config.port || DEFAULT_PORT)
 if (config.ssl) {
+  app.use(require('koa-sslify')({ port: config.ssl.port || DEFAULT_SSL_PORT }))
   const fs = require('fs')
   require('https').createServer({
     key: fs.readFileSync(config.ssl.key),
     cert: fs.readFileSync(config.ssl.cert)
-  }, app.callback()).listen(config.ssl.port)
+  }, app.callback()).listen(config.ssl.port || DEFAULT_SSL_PORT)
 }
-console.log('Server started on port ' + config.port)
+console.log('Server started on port ', config.port || DEFAULT_PORT)

@@ -18,17 +18,21 @@ export default class LogIn extends Component {
             <div className='content has-text-centered'>
               <p>The requested action requires that you log in.</p>
             </div>
-            <div className='control'>
-              <input className='input' type='text' name='user' placeholder='Username' />
-              <span className='icon is-small is-left'>
-                <i className='fa fa-user' />
-              </span>
+            <div className='field'>
+              <div className='control has-icons-left'>
+                <input className='input' type='text' name='user' placeholder='Username' />
+                <span className='icon is-small is-left'>
+                  <i className='fa fa-user' />
+                </span>
+              </div>
             </div>
-            <div className='control'>
-              <input className='input' type='password' name='pass' placeholder='Password' />
-              <span className='icon is-small is-left'>
-                <i className='fa fa-lock' />
-              </span>
+            <div className='field'>
+              <div className='control has-icons-left'>
+                <input className='input' type='password' name='pass' placeholder='Password' />
+                <span className='icon is-small is-left'>
+                  <i className='fa fa-lock' />
+                </span>
+              </div>
             </div>
             <div className='field is-grouped is-grouped-centered'>
               <div className='control'>
