@@ -26,3 +26,23 @@ export const loadRoutes = () => {
     })
   }
 }
+
+export const ADD_ROUTE = 'ADD'
+export const addRoute = (name, url) => {
+  return {
+    type: ADD_ROUTE,
+    payload: new Promise(resolve => {
+      fetch('/_/', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          url: url
+        })
+      })
+    })
+  }
+}

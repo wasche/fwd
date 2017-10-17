@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import Welcome from './Welcome'
 import LogIn from '../containers/LogIn'
-import AddForm from '../components/AddForm'
+import AddForm from '../containers/AddForm'
 
 export default class Content extends Component {
   render () {

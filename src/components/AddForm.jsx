@@ -4,8 +4,15 @@ import PropTypes from 'prop-types'
 export default class AddForm extends Component {
   constructor () {
     super()
+    this.state = {
+      name: '',
+      suffix: '',
+      prefix: 'https://',
+      url: ''
+    }
     this.submit = this.submit.bind(this)
     this.cancel = this.cancel.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   render () {
@@ -13,19 +20,25 @@ export default class AddForm extends Component {
       <form className='addForm container is-fluid' onSubmit={e => e.preventDefault()}>
         <div className='columns is-centered'>
           <div className='column is-half'>
+            <h2 className='subtitle'>Add a redirect:</h2>
             <div className='field has-addons'>
               <span className='control'>
                 <a className='button is-static'>hostname/</a>
               </span>
               <div className='control is-expanded'>
-                <input className='input' type='text' name='name' placeholder='name' />
+                <input className='input' type='text'
+                  name='name'
+                  placeholder='name'
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                />
               </div>
               <span className='control'>
                 <span className='select'>
-                  <select>
-                    <option defaultValue>{'{none}'}</option>
+                  <select name='suffix' value={this.state.suffix} onChange={this.handleInputChange}>
+                    <option value=''>{'{none}'}</option>
                     <option>{'{NUM}'}</option>
-                    <option>{'{/:query}'}</option>
+                    <option>{'{/{QUERY}}'}</option>
                   </select>
                 </span>
               </span>
@@ -36,14 +49,19 @@ export default class AddForm extends Component {
             <div className='field has-addons'>
               <span className='control'>
                 <span className='select'>
-                  <select>
-                    <option defaultValue>https://</option>
+                  <select name='prefix' value={this.state.prefix} onChange={this.handleInputChange}>
+                    <option>https://</option>
                     <option>http://</option>
                   </select>
                 </span>
               </span>
               <div className='control is-expanded'>
-                <input className='input' type='text' name='url' placeholder='url' />
+                <input className='input' type='text'
+                  name='url'
+                  placeholder='url'
+                  value={this.state.url}
+                  onChange={this.handleInputChange}
+                />
               </div>
             </div>
             <div className='field is-grouped is-grouped-centered'>
@@ -61,14 +79,34 @@ export default class AddForm extends Component {
   }
 
   submit () {
-    //
+    this.props.addRoute(
+      this.state.name + this.state.suffix,
+      this.state.prefix + this.state.url
+    )
   }
 
   cancel () {
     this.props.history.push({ pathname: '/' })
   }
+
+  handleInputChange (event) {
+    const target = event.target
+    const name = target.name
+    let value = target.value
+
+    if (name === 'url' && /^https?:\/\//.test(value)) {
+      let [prefix, rest] = /^(https?:\/\/)(.*)$/.exec(value).slice(1)
+      value = rest
+      this.setState({ prefix })
+    }
+
+    this.setState({
+      [name]: value
+    })
+  }
 }
 
 AddForm.propTypes = {
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  addRoute: PropTypes.func.isRequired
 }
