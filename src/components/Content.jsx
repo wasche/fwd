@@ -4,7 +4,6 @@ import PrivateRoute from './PrivateRoute'
 import Welcome from './Welcome'
 import LogIn from '../containers/LogIn'
 import AddForm from '../components/AddForm'
-import './content'
 
 export default class Content extends Component {
   render () {

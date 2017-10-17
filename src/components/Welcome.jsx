@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import './welcome'
 
 export default class Welcome extends Component {
   render () {
