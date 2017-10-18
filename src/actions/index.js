@@ -2,13 +2,19 @@ import fetch from 'isomorphic-fetch'
 import store from '../store'
 
 export const SESSION = 'SESSION'
-export const logIn = () => {
+export const logIn = (user, pass) => {
   return {
     type: SESSION,
-    payload: new Promise(resolve => {
-      setTimeout(() => {
-        resolve()
-      }, 1000)
+    payload: fetch('/_/login', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: user,
+        password: pass
+      })
     })
   }
 }

@@ -10,8 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    logIn: session => {
-      dispatch(logIn())
+    logIn: (user, pass) => {
+      dispatch(logIn(user, pass))
     }
   }
 }

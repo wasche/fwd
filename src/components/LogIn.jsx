@@ -3,6 +3,17 @@ import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 
 export default class LogIn extends Component {
+  constructor () {
+    super()
+    this.state = {
+      username: '',
+      password: ''
+    }
+    this.submit = this.submit.bind(this)
+    this.cancel = this.cancel.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
   render () {
     if (this.props.loggedIn) {
       const { from } = this.props.location.state || {from: { pathname: '/' }}
@@ -20,7 +31,12 @@ export default class LogIn extends Component {
             </div>
             <div className='field'>
               <div className='control has-icons-left'>
-                <input className='input' type='text' name='user' placeholder='Username' />
+                <input className='input' type='text'
+                  name='username'
+                  placeholder='Username'
+                  value={this.state.user}
+                  onChange={this.handleInputChange}
+                />
                 <span className='icon is-small is-left'>
                   <i className='fa fa-user' />
                 </span>
@@ -28,7 +44,12 @@ export default class LogIn extends Component {
             </div>
             <div className='field'>
               <div className='control has-icons-left'>
-                <input className='input' type='password' name='pass' placeholder='Password' />
+                <input className='input' type='password'
+                  name='password'
+                  placeholder='Password'
+                  value={this.state.pass}
+                  onChange={this.handleInputChange}
+                />
                 <span className='icon is-small is-left'>
                   <i className='fa fa-lock' />
                 </span>
@@ -36,7 +57,7 @@ export default class LogIn extends Component {
             </div>
             <div className='field is-grouped is-grouped-centered'>
               <div className='control'>
-                <button className='button is-success' onClick={this.props.logIn}>Log In</button>
+                <button className='button is-success' onClick={this.submit}>Log In</button>
               </div>
             </div>
           </div>
@@ -44,9 +65,31 @@ export default class LogIn extends Component {
       </form>
     )
   }
+
+  submit () {
+    this.props.logIn(
+      this.state.username,
+      this.state.password
+    )
+  }
+
+  cancel () {
+    this.props.history.push({ pathname: '/' })
+  }
+
+  handleInputChange (event) {
+    const target = event.target
+    const name = target.name
+    const value = target.value
+
+    this.setState({
+      [name]: value
+    })
+  }
 }
 
 LogIn.propTypes = {
+  history: PropTypes.object.isRequired,
   logIn: PropTypes.func.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   location: PropTypes.object.isRequired

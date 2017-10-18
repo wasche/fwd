@@ -16,7 +16,7 @@ const session = require('koa-session')
 app.keys = config.keys
 app.use(session({}, app))
 
-const passport = require('koa-passport')
+const passport = app.context.passport = require('koa-passport')
 const Strategy = require('passport-ldapauth')
 passport.use(new Strategy({
   server: config.ldap
