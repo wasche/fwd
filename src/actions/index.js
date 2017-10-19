@@ -1,10 +1,31 @@
 import fetch from 'isomorphic-fetch'
 import store from '../store'
 
+function checkStatus (response) {
+  if (response.status >= 200 && response.status < 300) {
+    return response
+  } else {
+    var error = new Error(response.statusText)
+    error.response = response
+    throw error
+  }
+}
+
 export const SESSION = 'SESSION'
-export const logIn = (user, pass) => {
+export const getSession = () => {
   return {
     type: SESSION,
+    payload: fetch('/_/session', {
+      credentials: 'same-origin'
+    })
+      .then(checkStatus)
+      .then(res => res.json())
+  }
+}
+export const LOGIN = 'LOGIN'
+export const logIn = (user, pass) => {
+  return {
+    type: LOGIN,
     payload: fetch('/_/login', {
       method: 'POST',
       credentials: 'same-origin',
@@ -16,6 +37,7 @@ export const logIn = (user, pass) => {
         password: pass
       })
     })
+      .then(checkStatus)
   }
 }
 
@@ -26,6 +48,7 @@ export const loadRoutes = () => {
     payload: new Promise(resolve => {
       if (!store.getState().routes.items.length) {
         fetch('/_/', { credentials: 'same-origin' })
+          .then(checkStatus)
           .then(res => res.json())
           .then(json => resolve(json))
       }
@@ -37,18 +60,17 @@ export const ADD_ROUTE = 'ADD'
 export const addRoute = (name, url) => {
   return {
     type: ADD_ROUTE,
-    payload: new Promise(resolve => {
-      fetch('/_/', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: name,
-          url: url
-        })
+    payload: fetch('/_/', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        url: url
       })
     })
+      .then(checkStatus)
   }
 }

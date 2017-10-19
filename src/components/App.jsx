@@ -27,6 +27,7 @@ class App extends Component {
 
   componentDidMount () {
     document.addEventListener('keyup', this.resetView)
+    this.props.loadSession()
   }
 
   componentWillUnmount () {
@@ -35,7 +36,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  loadSession: PropTypes.func.isRequired
 }
 
 export default withRouter(App)
