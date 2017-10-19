@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Header from './Header'
 import Content from './Content'
@@ -40,4 +39,4 @@ App.propTypes = {
   loadSession: PropTypes.func.isRequired
 }
 
-export default withRouter(App)
+export default App

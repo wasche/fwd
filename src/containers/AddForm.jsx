@@ -1,9 +1,12 @@
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { addRoute } from '../actions'
 import Component from '../components/AddForm'
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    loggedIn: state.session.loggedIn
+  }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
@@ -14,4 +17,4 @@ const mapDispatchToProps = (dispatch, props) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Component)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Component))

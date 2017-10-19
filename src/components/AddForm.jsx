@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import { Redirect } from 'react-router-dom'
 
 export default class AddForm extends Component {
   constructor () {
@@ -16,6 +17,12 @@ export default class AddForm extends Component {
   }
 
   render () {
+    if (!this.props.loggedIn) {
+      return (
+        <Redirect to='/login' />
+      )
+    }
+
     return (
       <form className='addForm container is-fluid' onSubmit={e => e.preventDefault()}>
         <div className='columns is-centered'>
@@ -108,5 +115,6 @@ export default class AddForm extends Component {
 
 AddForm.propTypes = {
   history: PropTypes.object.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
   addRoute: PropTypes.func.isRequired
 }
