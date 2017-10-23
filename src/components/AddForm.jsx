@@ -25,6 +25,7 @@ export default class AddForm extends Component {
         }} />
       )
     }
+    // TODO: redirect after add isFullfilled & reset state
 
     return (
       <form className='addForm container is-fluid' onSubmit={e => e.preventDefault()}>
@@ -36,7 +37,7 @@ export default class AddForm extends Component {
                 <a className='button is-static'>hostname/</a>
               </span>
               <div className='control is-expanded'>
-                <input className='input' type='text' autoFocus
+                <input className={`input ${this.props.error && 'is-danger'}`} type='text' autoFocus
                   name='name'
                   placeholder='name'
                   value={this.state.name}
@@ -113,6 +114,8 @@ export default class AddForm extends Component {
     this.setState({
       [name]: value
     })
+
+    // TODO: reset add_route state
   }
 }
 
@@ -120,5 +123,6 @@ AddForm.propTypes = {
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   loggedIn: PropTypes.bool.isRequired,
-  addRoute: PropTypes.func.isRequired
+  addRoute: PropTypes.func.isRequired,
+  error: PropTypes.object
 }

@@ -5,7 +5,8 @@ import Component from '../components/AddForm'
 
 const mapStateToProps = state => {
   return {
-    loggedIn: state.session.loggedIn
+    loggedIn: state.session.loggedIn,
+    error: state.add.error
   }
 }
 

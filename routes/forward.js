@@ -9,7 +9,7 @@ exports.handler = async (ctx, next) => {
     }
     if (ctx.params.query) ctx.params.route += '/{QUERY}'
     ctx.db.query(
-      'select url from routes where name = \'' + ctx.params.route + '\';',
+      `select url from routes where name = '${ctx.params.route}';`,
       (err, result) => {
         if (err) ctx.badRequest(err)
         else if (result.rows && result.rows.length) ctx.redirect(result.rows[0].url)
