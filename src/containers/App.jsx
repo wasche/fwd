@@ -10,7 +10,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => {
   return {
     loadSession: () => {
-      dispatch(getSession())
+      dispatch(getSession()).catch(() => {})
     }
   }
 }

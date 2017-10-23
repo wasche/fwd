@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, props) => {
   return {
     logIn: (user, pass) => {
-      dispatch(logIn(user, pass))
+      dispatch(logIn(user, pass)).catch(() => {})
     }
   }
 }

@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, props) => {
   return {
     addRoute: (name, url) => {
-      dispatch(addRoute(name, url))
+      dispatch(addRoute(name, url)).catch(() => {})
     }
   }
 }

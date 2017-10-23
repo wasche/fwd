@@ -124,5 +124,5 @@ AddForm.propTypes = {
   location: PropTypes.object.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   addRoute: PropTypes.func.isRequired,
-  error: PropTypes.object
+  error: PropTypes.string
 }
