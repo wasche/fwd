@@ -36,7 +36,7 @@ export default class AddForm extends Component {
                 <a className='button is-static'>hostname/</a>
               </span>
               <div className='control is-expanded'>
-                <input className='input' type='text'
+                <input className='input' type='text' autoFocus
                   name='name'
                   placeholder='name'
                   value={this.state.name}

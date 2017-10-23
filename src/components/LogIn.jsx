@@ -31,7 +31,7 @@ export default class LogIn extends Component {
             </div>
             <div className='field'>
               <div className='control has-icons-left'>
-                <input className='input' type='text'
+                <input className='input' type='text' autoFocus
                   name='username'
                   placeholder='Username'
                   value={this.state.user}
