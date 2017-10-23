@@ -19,7 +19,10 @@ export default class AddForm extends Component {
   render () {
     if (!this.props.loggedIn) {
       return (
-        <Redirect to='/login' />
+        <Redirect to={{
+          pathname: '/login',
+          state: { from: this.props.location }
+        }} />
       )
     }
 
@@ -115,6 +118,7 @@ export default class AddForm extends Component {
 
 AddForm.propTypes = {
   history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   addRoute: PropTypes.func.isRequired
 }
