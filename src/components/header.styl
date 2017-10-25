@@ -4,3 +4,30 @@
     font-weight bold
     font-style italic
     cursor default
+
+@media screen and (max-width: 768px)
+  .hero.is-dark.is-bold
+    .navbar.is-transparent
+      .navbar-menu
+        background-color unset
+        background-image none
+
+@media screen and (max-width: 1024px)
+  .navbar,
+  .navbar .navbar-menu,
+  .navbar-start,
+  .navbar-end
+    align-items stretch
+    display flex
+
+  .navbar-menu
+    flex-grow 1
+    flex-shrink 0
+
+  .navbar-start
+    justify-content flex-start
+    margin-right auto
+
+  .navbar-end
+    justify-content flex-end
+    margin-left auto
