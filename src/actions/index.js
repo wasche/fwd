@@ -74,3 +74,13 @@ export const addRoute = (name, url) => {
       .then(checkStatus)
   }
 }
+
+export const SEARCH = 'SEARCH'
+export const search = (query) => {
+  return {
+    type: SEARCH,
+    payload: fetch(`/_/${query}`, { credentials: 'same-origin' })
+      .then(checkStatus)
+      .then(res => res.json())
+  }
+}

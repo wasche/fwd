@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { NavLink as Link } from 'react-router-dom'
+import SearchBox from './SearchBox'
 import './header'
 
 export default class Header extends Component {
@@ -19,9 +20,7 @@ export default class Header extends Component {
               <Link to='/add' exact className='navbar-item' activeClassName='is-active'>
                 <span className='icon'><i className='fa fa-plus' /></span>
               </Link>
-              <Link to='/search' exact className='navbar-item' activeClassName='is-active'>
-                <span className='icon'><i className='fa fa-search' /></span>
-              </Link>
+              <SearchBox />
             </div>
           </div>
         </nav>
